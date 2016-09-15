@@ -5,7 +5,10 @@ import { IRobot } from '../model/IRobot';
   selector: 'robot-details',
   template: `
     <section class="robot-details">
-      <h1>{{robot.name}}</h1>
+      <div [ngSwitch]="edit">
+        <input *ngSwitchCase="true" [(ngModel)]="robot.name" type="text" />
+        <h1 *ngSwitchDefault (click)="setEdit()">{{robot.name}}</h1>
+      </div>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
       </figure>
@@ -14,5 +17,11 @@ import { IRobot } from '../model/IRobot';
 })
 export class RobotDetailsComponent {
   @Input()
-  robot:IRobot
+  robot:IRobot;
+
+  edit:Boolean = false;
+
+  setEdit () {
+    this.edit = !this.edit;
+  };
 };

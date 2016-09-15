@@ -7,3 +7,23 @@
 .robot-details figure img {
   display: block;
 }
+
+.robot-details h1,
+.robot-details input {
+  font-size: 2em;
+  display: block;
+  text-align: left;
+  padding: 1em 0.5em;
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-family: 'Bungee', sans-serif;
+  color: inherit;
+  line-height: inherit;
+  width: 10em;
+}
+
+.robot-details input {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #242e3a;
+}
