@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RobotCardComponent } from './robot-card.component';
+import { RobotDetailsComponent } from './robot-details.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { RobotCardComponent } from './robot-card.component';
   ],
   declarations: [
     AppComponent,
-    RobotCardComponent
+    RobotCardComponent,
+    RobotDetailsComponent
   ],
   bootstrap: [AppComponent],
   providers: []

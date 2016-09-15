@@ -1,0 +1,9 @@
+.robot-details figure {
+  background-color: #a9bad0;
+  padding: 0;
+  margin: 0;
+}
+
+.robot-details figure img {
+  display: block;
+}
