@@ -12,7 +12,6 @@ interface IRobot {
     <figure>
       <img src="https://robohash.org/{{robot.name}}.png">
     </figure>
-    <p>{{robot.goal}}</p>
   </article>
   <input [(ngModel)]="robot.name" placeholder="name"/>
   `
