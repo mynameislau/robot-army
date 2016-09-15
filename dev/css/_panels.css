@@ -1,0 +1,15 @@
+.panels {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.panels__main {
+  flex-grow: 1;
+  padding: 1em;
+}
+
+.panels__side {
+  background-color: #476a94;
+  padding: 1em;
+}

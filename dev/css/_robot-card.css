@@ -17,3 +17,7 @@
   display: block;
   width: 6em;
 }
+
+.robot-card--selected {
+  color: red !important;
+}

@@ -4,15 +4,18 @@ import { IRobot } from '../model/IRobot';
 @Component ({
   selector: 'robot-card',
   template: `
-    <article class="robot-card">
+    <article class="robot-card" [ngClass]="{ 'robot-card--selected': selected }">
       <h1>{{robot.name}}</h1>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
-      </figure>
+      </figure>{{selected}}
     </article>
     `
 })
 export class RobotCardComponent {
   @Input()
   robot:IRobot;
+
+  @Input()
+  selected:Boolean;
 };
