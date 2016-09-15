@@ -1,0 +1,19 @@
+.robot-card {
+}
+
+.robot-card h1 {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.robot-card figure {
+  margin: 0;
+  padding: 0;
+  background-color: #909c9b;
+  border: 3px solid #ecf7ff;
+}
+
+.robot-card figure img {
+  display: block;
+  width: 6em;
+}

@@ -4,7 +4,7 @@ import { IRobot } from '../model/IRobot';
 @Component ({
   selector: 'robot-card',
   template: `
-    <article>
+    <article class="robot-card">
       <h1>{{robot.name}}</h1>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">

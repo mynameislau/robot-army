@@ -1,0 +1,14 @@
+.card-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  padding: 0 0.5em;
+}
+
+.card-list__entry {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
