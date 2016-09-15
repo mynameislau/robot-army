@@ -4,7 +4,18 @@
   "description": "tutoriel",
   "main": "index.js",
   "dependencies": {
-    "webpack": "^1.13.2"
+    "@angular/common": "^2.0.0",
+    "@angular/compiler": "^2.0.0",
+    "@angular/core": "^2.0.0",
+    "@angular/forms": "^2.0.0",
+    "@angular/http": "^2.0.0",
+    "@angular/platform-browser": "^2.0.0",
+    "@angular/platform-browser-dynamic": "^2.0.0",
+    "@angular/router": "^3.0.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.0-beta.12",
+    "webpack": "^1.13.2",
+    "zone.js": "^0.6.23"
   },
   "devDependencies": {
     "angular2-template-loader": "^0.5.0",
@@ -17,7 +28,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base dev --inline --hot --port 7777",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "typings install"
   },
   "author": "",
   "license": "ISC"

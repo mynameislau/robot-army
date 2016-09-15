@@ -1,19 +1,65 @@
+const webpack = require('webpack');
+const path = require('path');
+
 module.exports = {
+
+  /*
+  points d'entrées pour parcourir les modules
+  */
   entry: {
-    app: [
-      './src/app/main.ts'
-    ]
+    'polyfills': './src/app/polyfills.ts',
+    'vendor': './src/app/vendor.ts',
+    'app': './src/app/app.ts'
   },
+
+  /*
+  recherche automatiquement les fichiers contenant ces extensions
+  si l'extension est omise à l'import
+  */
+  resolve: {
+    extensions: ['', '.js', '.ts']
+  },
+
+  /*
+  gestion des sourcemaps
+  */
   devtool: 'inline-sourcemap',
+
+  /*
+  fichiers sortants
+  */
   output: {
-    path: `${__dirname}/dev`,
+    path: path.join(__dirname, 'dev'),
     publicPath: '/assets/',
-    filename: 'main.js'
+    filename: '[name].js',
+    chunkFilename: '[id].chunk.js'
   },
+
+  /*
+  les loaders determinent comment doivent être
+  traités les fichiers correspondant au test (regex)
+  ici tous les fichiers possédant une extension ts
+  */
   module: {
     loaders: [{
       test: /\.ts$/,
       loaders: ['ts', 'angular2-template-loader']
     }]
+  },
+
+  /*
+  plugins webpack, altère le traitement de base de webpack
+  ici commonChunkPlugin : si une dependance est incorporée dans vendors,
+  elle ne sera pas rappellée dans app
+  */
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor', 'polyfills']
+    })
+  ],
+
+  devServer: {
+    historyApiFallback: true,
+    stats: 'minimal'
   }
 };
