@@ -1,0 +1,29 @@
+html {
+  font-family: sans-serif;
+  background-color: #242e3a;
+  color: #c1e3f9
+}
+
+h1 {
+  font-family: 'Bungee', sans-serif;
+  text-align: center;
+}
+
+article {
+  display: inline-block
+}
+
+article h1 {
+  text-align: center;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  background-color: #909c9b;
+  border: 3px solid #ecf7ff;
+}
+
+figure img {
+  display: block;
+}

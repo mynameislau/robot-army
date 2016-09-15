@@ -1,23 +1,15 @@
 import { Component } from '@angular/core';
-
-interface IRobot {
-  name:string;
-}
+import { IRobot } from '../model/IRobot';
 
 @Component({
   selector: 'my-app',
   template: `
-  <article>
-    <h1>{{robot.name}}</h1>
-    <figure>
-      <img src="https://robohash.org/{{robot.name}}.png">
-    </figure>
-  </article>
-  <input [(ngModel)]="robot.name" placeholder="name"/>
+  <h1>Robot Army Manager 3000</h1>
+  <robot-card [robot]="robot"></robot-card>
   `
 })
 export class AppComponent {
   robot:IRobot = {
     name: 'Bender'
-  }
+  };
 };
