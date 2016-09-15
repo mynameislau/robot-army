@@ -58,6 +58,9 @@ module.exports = {
     })
   ],
 
+  /*
+  options du server de dev : log au minimum
+  */
   devServer: {
     historyApiFallback: true,
     stats: 'minimal'
