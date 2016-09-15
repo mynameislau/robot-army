@@ -7,6 +7,6 @@ import '@angular/http';
 import '@angular/router';
 
 // RxJS
-// import 'rxjs';
-// import '@ngrx/core';
-// import '@ngrx/store';
+import 'rxjs';
+import '@ngrx/core';
+import '@ngrx/store';
