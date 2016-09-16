@@ -6,13 +6,14 @@ import { Robot } from '../model/state-model';
   template: `
     <section class="robot-details">
       <div [ngSwitch]="edit">
-        <input #nameInput *ngSwitchCase="true" (keyup)="changeNameHandler(nameInput.value)" type="text" />
+        <input #nameInput *ngSwitchCase="true" (keyup)="changeNameHandler(nameInput.value)" value="{{robot.name}}" type="text" />
         <h1 *ngSwitchDefault (click)="setEdit()">{{robot.name}}</h1>
       </div>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
       </figure>
     </section>
+    <button (click)="deleteHandler()">Détruire</button>
     `
 })
 export class RobotDetailsComponent {
@@ -22,7 +23,16 @@ export class RobotDetailsComponent {
   @Output()
   changeName = new EventEmitter(false);
 
+  @Output()
+  delete = new EventEmitter(false);
+
   edit:Boolean = false;
+
+  deleteHandler () {
+    this.delete.emit({
+      id: this.robot.id
+    });
+  }
 
   changeNameHandler (name:string) {
     this.changeName.emit({

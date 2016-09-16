@@ -4,18 +4,15 @@ import { Robot } from '../model/state-model';
 @Component ({
   selector: 'robot-card',
   template: `
-    <article class="robot-card" [ngClass]="{ 'robot-card--selected': selected }">
+    <article class="robot-card" [ngClass]="{ 'robot-card--selected': robot.selected }">
       <h1>{{robot.name}}</h1>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
-      </figure>{{selected}}
+      </figure>
     </article>
     `
 })
 export class RobotCardComponent {
   @Input()
   robot:Robot;
-
-  @Input()
-  selected:Boolean;
 };

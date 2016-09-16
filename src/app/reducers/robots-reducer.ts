@@ -1,7 +1,12 @@
 import { ActionReducer, Action } from '@ngrx/store';
 import { Robots, Robot } from '../model/state-model';
 import { List, Map } from 'immutable';
-import { CHANGE_NAME } from '../actions/robots-actions';
+import {
+  CHANGE_NAME,
+  SET_SELECTED,
+  DELETE,
+  CREATE
+} from '../actions/robots-actions';
 
 const robotsList:List<Robot> = List([
   new Robot({ name: 'R2D2', id: '0' }),
@@ -15,6 +20,15 @@ const defaultRobots:Robots = new Robots({
 
 export const robotsReducer:ActionReducer<Robots> = (state:Robots = defaultRobots, action:Action):Robots => {
   switch (action.type) {
+
+    case DELETE:
+      return state.deleteRobot(action.payload.id);
+
+    case CREATE:
+      return state.addRobot(action.payload.name);
+
+    case SET_SELECTED:
+      return state.setSelectedRobot(action.payload.id);
 
     case CHANGE_NAME:
       return state.changeRobotName(action.payload.name, action.payload.id);
