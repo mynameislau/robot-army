@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRobot } from '../model/IRobot';
+import { Robot } from '../model/state-model';
 
 @Component ({
   selector: 'robot-card',
@@ -14,7 +14,7 @@ import { IRobot } from '../model/IRobot';
 })
 export class RobotCardComponent {
   @Input()
-  robot:IRobot;
+  robot:Robot;
 
   @Input()
   selected:Boolean;

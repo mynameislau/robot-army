@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { CHANGE_NAME, changeNameAction } from '../actions/robots-actions';
 
-import { IRobot, IRobots, IAppState } from '../model/state-interfaces';
+import { Robot, Robots, AppState } from '../model/state-model';
 
 @Component({
   selector: 'my-app',
@@ -17,25 +18,32 @@ import { IRobot, IRobots, IAppState } from '../model/state-interfaces';
         </ul>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot" [robot]="selectedRobot"></robot-details>
+        <robot-details *ngIf="selectedRobot" [robot]="selectedRobot" (changeName)="onChangeName($event)"></robot-details>
       </div>
     </div>
   `
 })
 export class AppComponent {
-  robotsList:Observable<IRobot[]>;
+  robotsList:Observable<Robot[]>;
 
-  selectedRobot:IRobot;
+  selectedRobot:Robot;
 
-  constructor (public store:Store<IAppState>) {
-    this.robotsList = store.select(state => state.robots).map(robots => robots.list);
+  constructor (public store:Store<AppState>) {
+    this.robotsList = store.select(state => state.robots).map(robots => robots.list.toArray());
+    store.subscribe(state => {
+      console.log(state.robots.list.toArray);
+    })
   }
 
-  isSelected (robot:IRobot) {
+  onChangeName (event:any) {
+    this.store.dispatch(changeNameAction(event.name, event.id))
+  }
+
+  isSelected (robot:Robot) {
     return robot === this.selectedRobot;
   };
-  select (robot:IRobot) {
+
+  select (robot:Robot) {
     this.selectedRobot = robot;
-    console.log('cllick', this.selectedRobot);
   };
 };
