@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import {
-  changeNameAction,
-  setSelectedAction,
-  createAction,
-  deleteAction
-} from '../actions/robots-actions';
+import { RobotsService } from '../services/robots.service';
 
 import { Robot, Robots, AppState } from '../model/state-model';
 
@@ -19,13 +14,13 @@ import { Robot, Robots, AppState } from '../model/state-model';
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
           <li *ngFor="let robot of robotsList|async" class="card-list__entry">
-            <robot-card (click)="select(robot.id)" [robot]="robot"></robot-card>
+            <robot-card (click)="service.select(robot.id)" [robot]="robot"></robot-card>
           <li>
         </ul>
-        <button (click)="createRobot()">Créer un robot</button>
+        <button (click)="service.createRobot()">Créer un robot</button>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="onChangeName($event)" (delete)="deleteRobot($event)"></robot-details>
+        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="service.onChangeName($event)" (delete)="service.deleteRobot($event)"></robot-details>
       </div>
     </div>
   `
@@ -33,25 +28,15 @@ import { Robot, Robots, AppState } from '../model/state-model';
 export class AppComponent {
   robotsList:Observable<Robot[]>;
   selectedRobot:Observable<Robot>;
+  service:RobotsService;
 
-  constructor (public store:Store<AppState>) {
-    this.robotsList = store.select(state => state.robots).map(robots => robots.list.toArray());
-    this.selectedRobot = store.select(state => state.robots.getSelectedRobot());
+  constructor (robotsService:RobotsService) {
+    this.service = robotsService;
+    this.robotsList = robotsService.getRobotsList();
+    this.selectedRobot = robotsService.getSelectedRobot();
   }
 
-  onChangeName (event:any) {
-    this.store.dispatch(changeNameAction(event.name, event.id));
+  ngOnInit () {
+    this.service.initialize();
   }
-
-  createRobot () {
-    this.store.dispatch(createAction(null));
-  }
-
-  deleteRobot (event:any) {
-    this.store.dispatch(deleteAction(event.id));
-  }
-
-  select (id:string) {
-    this.store.dispatch(setSelectedAction(id));
-  };
 };

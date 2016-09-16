@@ -4,6 +4,7 @@ export const CHANGE_NAME:string = 'CHANGE_NAME';
 export const SET_SELECTED:string = 'SET_SELECTED';
 export const DELETE:string = 'DELETE';
 export const CREATE:string = 'CREATE';
+export const INIT:string = 'INIT';
 
 export const changeNameAction = (name:string, id:string) => ({
   type: CHANGE_NAME,
@@ -11,6 +12,11 @@ export const changeNameAction = (name:string, id:string) => ({
     name: name,
     id: id
   }
+});
+
+export const initAction = () => ({
+  type: INIT,
+  payload: {}
 });
 
 export const setSelectedAction = (id:string) => ({
