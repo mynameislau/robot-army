@@ -5,6 +5,7 @@ export const SET_SELECTED:string = 'SET_SELECTED';
 export const DELETE:string = 'DELETE';
 export const CREATE:string = 'CREATE';
 export const INIT:string = 'INIT';
+export const INIT_FAILED:string = 'INIT_FAILED';
 
 export const changeNameAction = (name:string, id:string) => ({
   type: CHANGE_NAME,
