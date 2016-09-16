@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../model/state-model';
+import { Actions, Effect } from '@ngrx/effects';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
 
-import { INIT } from '../actions/robots-actions';
+import { INIT, INIT_FAILED } from '../actions/robots-actions';
+import { RobotsDataService } from '../services/robots-data.service';
 
 @Injectable()
 export class RobotsEffects {
-  store:Store<AppState>
 
-  constructor (store:Store<AppState>) {
-    this.store = store;
+  constructor (private store:Store<AppState>, private http:Http, private actions$:Actions) {
   }
 
-  @Effect() init$ = this.updates$
-    .whenAction('INIT_NOTES')
-    .switchMap(() => this.notesDataService.getNotes().mergeMap(notes => Observable.from(notes))
-      .map(res => ({ type: "ADD_NOTE_FROM_SERVER", payload: res }))
-      .catch(() => Observable.of({ type: "FETCH_FAILED" }))
-    )
+  @Effect() login$ = this.actions$
+      // Listen for the 'LOGIN' action
+      .ofType(INIT)
+      .switchMap(() => this.http.get('/')
+        // If successful, dispatch success action with result
+        .map(res => ({ type: 'LOGIN_SUCCESS', payload: res.json() }))
+        // If request fails, dispatch failed action
+        .catch(() => Observable.of({ type: 'LOGIN_FAILED' }));
+      );
 }
