@@ -24,7 +24,6 @@ export class Robots extends RobotsRecord {
   changeRobotName (name:string, id:string) {
     return this.update('list', list => {
       return list.map((robot:Robot) => {
-        console.log(robot, robot.id, id);
         if (robot.id === id) {
           return robot.set('name', name);
         }
