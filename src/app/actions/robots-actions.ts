@@ -5,7 +5,8 @@ export const SET_SELECTED:string = 'SET_SELECTED';
 export const DELETE:string = 'DELETE';
 export const CREATE:string = 'CREATE';
 export const INIT:string = 'INIT';
-export const INIT_FAILED:string = 'INIT_FAILED';
+export const SERVER_UPDATE:string = 'SERVER_UPDATE';
+export const SERVER_UPDATE_FAILED:string = 'SERVER_UPDATE_FAILED';
 
 export const changeNameAction = (name:string, id:string) => ({
   type: CHANGE_NAME,
@@ -19,6 +20,18 @@ export const initAction = () => ({
   type: INIT,
   payload: {}
 });
+
+export const serverUpdate = (initJSON:any) => ({
+  type: SERVER_UPDATE,
+  payload: initJSON
+});
+
+export const serverUpdateFailed = (reason:string) => ({
+  type: SERVER_UPDATE_FAILED,
+  payload: {
+    reason: reason
+  }
+})
 
 export const setSelectedAction = (id:string) => ({
   type: SET_SELECTED,

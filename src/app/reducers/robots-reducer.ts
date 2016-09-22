@@ -5,7 +5,8 @@ import {
   CHANGE_NAME,
   SET_SELECTED,
   DELETE,
-  CREATE
+  CREATE,
+  SERVER_UPDATE
 } from '../actions/robots-actions';
 
 const robotsList:List<Robot> = List([
@@ -32,6 +33,9 @@ export const robotsReducer:ActionReducer<Robots> = (state:Robots = defaultRobots
 
     case CHANGE_NAME:
       return state.changeRobotName(action.payload.name, action.payload.id);
+
+    case SERVER_UPDATE:
+      return state.updateRobots(action.payload);
 
     default:
       return state;

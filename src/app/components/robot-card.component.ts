@@ -4,7 +4,11 @@ import { Robot } from '../model/state-model';
 @Component ({
   selector: 'robot-card',
   template: `
-    <article class="robot-card" [ngClass]="{ 'robot-card--selected': robot.selected }">
+    <article class="robot-card" [ngClass]="{
+      'robot-card--selected': robot.selected,
+      'robot-card--pending': robot.dirty,
+      'robot-card--deleting': robot.deleted
+    }">
       <h1>{{robot.name}}</h1>
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">

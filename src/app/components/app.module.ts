@@ -6,6 +6,7 @@ import { robotsReducer } from '../reducers/robots-reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { EffectsModule } from '@ngrx/effects';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RobotCardComponent } from './robot-card.component';
@@ -17,6 +18,7 @@ import { RobotsEffects } from '../services/robots-effects.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     StoreModule.provideStore({ robots: robotsReducer }),
     EffectsModule.run(RobotsEffects),
     StoreDevtoolsModule.instrumentStore({

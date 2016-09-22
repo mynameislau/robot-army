@@ -27,6 +27,7 @@
     "no-console": 0,
     "no-warning-comments": 1,
     "sort-keys": 0,
+    "no-mixed-operators": 0,
 
     "multiline-ternary": 0,
   },

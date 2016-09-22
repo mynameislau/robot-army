@@ -4,20 +4,60 @@
 		"selected_items":
 		[
 			[
-				"margin-",
-				"margin-top"
+				"Robots",
+				"RobotsEffectsService	alias"
+			],
+			[
+				"selec",
+				"selectedRobot	property"
+			],
+			[
+				"upda",
+				"updateIn	method"
+			],
+			[
+				"font",
+				"font-family"
 			],
 			[
 				"mar",
-				"margin-top"
+				"margin"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"sele",
+				"selectedRobot	property"
 			],
 			[
 				"marg",
-				"margin-top"
+				"margin-right"
 			],
 			[
 				"padd",
-				"padding-top"
+				"padding"
+			],
+			[
+				"list-st",
+				"list-style-type"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"margin-",
+				"margin-top"
 			],
 			[
 				"pad",
@@ -28,16 +68,8 @@
 				"max-width"
 			],
 			[
-				"font",
-				"font-size"
-			],
-			[
 				"inl",
 				"inline-block"
-			],
-			[
-				"tex",
-				"text-transform"
 			],
 			[
 				"in",
@@ -58,10 +90,6 @@
 			[
 				"stripp",
 				"strippedURL"
-			],
-			[
-				"bac",
-				"background-image"
 			],
 			[
 				"date",
@@ -486,45 +514,83 @@
 			[
 				"compile",
 				"compileSass"
-			],
-			[
-				"build",
-				"buildTemplatesDist"
-			],
-			[
-				"help",
-				"helpersFetched"
-			],
-			[
-				"svg-",
-				"svg-mapping"
-			],
-			[
-				"watch",
-				"watchSVGMap"
-			],
-			[
-				"dis",
-				"displayName"
-			],
-			[
-				"wat",
-				"watchSVGMap"
-			],
-			[
-				"requi",
-				"requiredTasks"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/Users/lfalda/.atom/storage/application.json",
+			"file": "src/app/components/app.module.ts",
 			"settings":
 			{
-				"buffer_size": 30,
+				"buffer_size": 1257,
+				"line_ending": "Windows",
+				"name": "app.module.ts"
+			}
+		},
+		{
+			"file": "src/app/components/app.component.ts",
+			"settings":
+			{
+				"buffer_size": 1433,
+				"line_ending": "Windows",
+				"name": "app.component.ts"
+			}
+		},
+		{
+			"file": "src/app/services/robots.service.ts",
+			"settings":
+			{
+				"buffer_size": 1170,
+				"line_ending": "Windows",
+				"name": "robots.service.ts"
+			}
+		},
+		{
+			"file": "src/app/services/robots-effects.service.ts",
+			"settings":
+			{
+				"buffer_size": 921,
+				"line_ending": "Windows",
+				"name": "robots-effects.service.ts"
+			}
+		},
+		{
+			"file": "server/index.js",
+			"settings":
+			{
+				"buffer_size": 361,
+				"line_ending": "Windows",
+				"name": "index.js"
+			}
+		},
+		{
+			"file": "/C/www/svg-converter/png-fallbacks.js",
+			"settings":
+			{
+				"buffer_size": 3534,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import { Action } from '@ngrx/store';\n\nexport const CHANGE_NAME:string = 'CHANGE_NAME';\nexport const SET_SELECTED:string = 'SET_SELECTED';\nexport const DELETE:string = 'DELETE';\nexport const CREATE:string = 'CREATE';\nexport const INIT:string = 'INIT';\nexport const INIT_FAILED:string = 'INIT_FAILED';\nexport const \n\nexport const changeNameAction = (name:string, id:string) => ({\n  type: CHANGE_NAME,\n  payload: {\n    name: name,\n    id: id\n  }\n});\n\nexport const initAction = () => ({\n  type: INIT,\n  payload: {}\n});\n\nexport const setSelectedAction = (id:string) => ({\n  type: SET_SELECTED,\n  payload: {\n    id: id\n  }\n});\n\nexport const deleteAction = (id:string) => ({\n  type: DELETE,\n  payload: {\n    id: id\n  }\n});\n\nexport const createAction = (id:string) => ({\n  type: CREATE,\n  payload: {\n    name: name\n  }\n});",
+			"file": "src/app/actions/robots-actions.ts",
+			"file_size": 842,
+			"file_write_time": 131185186678229901,
+			"settings":
+			{
+				"buffer_size": 815,
+				"line_ending": "Windows",
+				"name": "robots-actions.ts"
+			}
+		},
+		{
+			"file": "src/app/model/state-model.ts",
+			"settings":
+			{
+				"buffer_size": 1510,
+				"line_ending": "Windows",
+				"name": "state-interfaces.ts"
 			}
 		}
 	],
@@ -642,10 +708,54 @@
 	},
 	"expanded_folders":
 	[
-		"/C/www/robot-army"
+		"/C/www/robot-army",
+		"/C/www/robot-army/server",
+		"/C/www/robot-army/src",
+		"/C/www/robot-army/src/app",
+		"/C/www/robot-army/src/app/actions",
+		"/C/www/robot-army/src/app/components",
+		"/C/www/robot-army/src/app/model",
+		"/C/www/robot-army/src/app/services",
+		"/C/www/robot-army/typings"
 	],
 	"file_history":
 	[
+		"/C/www/robot-army/src/app/components/robot-card.component.ts",
+		"/C/www/robot-army/package.json",
+		"/C/www/robot-army/src/app/components/robot-details.component.ts",
+		"/C/www/robot-army/src/app/reducers/robots-reducer.ts",
+		"/C/www/robot-army/src/app/services/robots-data.service.ts",
+		"/C/www/svg-converter/index.js",
+		"/C/www/ttcc/src/js/server/socketServer.js",
+		"/C/www/ttcc/server-side/server/backendMain.js",
+		"/C/www/ttcc/server-side/server/socketServer.js",
+		"/C/www/robot-army/dev/css/_card-list.css",
+		"/C/www/robot-army/src/app/model/robots-functions.ts",
+		"/C/www/robot-army/src/app/model/IAppState.ts",
+		"/C/www/robot-army/src/app/model/IRobots.ts",
+		"/C/www/robot-army/src/app/model/IRobot.ts",
+		"/C/www/robot-army/webpack.config.js",
+		"/C/www/robot-army/src/app/vendor.ts",
+		"/C/www/robot-army/src/app/app.ts",
+		"/C/www/robot-army/src/app/polyfills.ts",
+		"/C/www/ttcc/webpack.config.js",
+		"/C/www/robot-army/dev/css/main.css",
+		"/C/www/robot-army/dev/css/_panels.css",
+		"/C/www/robot-army/dev/css/_robot-card.css",
+		"/C/www/robot-army/dev/css/_robot-details.css",
+		"/C/www/robot-army/dev/index.html",
+		"/C/www/robot-army/dev/css/_base.css",
+		"/C/www/robot-army/dev/base.css",
+		"/C/www/robot-army/dev/main.css",
+		"/C/www/robot-army/dev/card-list.css",
+		"/C/www/ttcc/package.json",
+		"/C/Users/lfalda/AppData/Roaming/Sublime Text 3/Packages/User/TypeScript.sublime-settings",
+		"/C/Users/lfalda/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript (Babel).sublime-settings",
+		"/C/www/robot-army/front-end.sublime-project",
+		"/C/www/robot-army/tsconfig.json",
+		"/C/www/robot-army/src/app/main.ts",
+		"/C/www/robot-army/src/app/tutu.ts",
+		"/C/Users/lfalda/.atom/storage/application.json",
 		"/C/Users/lfalda/OneDrive - GROUPE SCALA/Projets/Formation Angular JS/Plan.md",
 		"/C/www/amp/src/templates/partials/store-menu.hbs",
 		"/C/www/amp/src/scss/modules/_btn.scss",
@@ -658,11 +768,8 @@
 		"/C/www/amp/src/templates/pages/store-cart-3.hbs",
 		"/C/www/amp/src/templates/pages/store-cart-6.hbs",
 		"/C/www/amp/src/templates/pages/store-parking.hbs",
-		"/C/www/robot-army/package.json",
 		"/C/www/amp/package.json",
-		"/C/www/ttcc/package.json",
 		"/C/www/grogue/config/webpack.common.js",
-		"/C/www/ttcc/webpack.config.js",
 		"/C/www/grogue/config/webpack.dev.js",
 		"/C/www/amp/src/scss/modules/store/_parking-results.scss",
 		"/C/www/amp/src/scss/modules/store/_parking-menu.scss",
@@ -740,44 +847,11 @@
 		"/C/www/amp/src/scss/modules/_page-heading.scss",
 		"/C/www/amp/src/bower_components/jquery-ui/themes/smoothness/jquery-ui.css",
 		"/C/www/amp/tasks/fonticon.js",
-		"/C/www/amp/dev/scss/vendors/_fonticon-icons.scss",
-		"/C/www/amp/src/bower_components/jquery-ui/themes/smoothness/theme.css",
-		"/C/www/amp/src/bower_components/jquery-ui/composer.json",
-		"/C/www/amp/src/bower_components/jquery-ui/package.json",
-		"/C/www/amp/src/bower_components/jquery-ui/README.md",
-		"/C/Users/lfalda/AppData/Local/Temp/Temp1_jquery-ui-1.12.0.custom.zip/jquery-ui-1.12.0.custom/jquery-ui.theme.css",
-		"/C/Users/lfalda/AppData/Local/Temp/Temp1_jquery-ui-1.12.0.custom.zip/jquery-ui-1.12.0.custom/jquery-ui.css",
-		"/C/Users/lfalda/AppData/Local/Temp/Temp1_jquery-ui-1.12.0.custom.zip/jquery-ui-1.12.0.custom/package.json",
-		"/C/www/amp/src/scss/modules/_sticky.scss",
-		"/C/www/amp/src/js/head/main_head.js",
-		"/C/www/amp/src/scss/modules/_card.scss",
-		"/C/www/amp/src/templates/partials/topbar.hbs",
-		"/C/www/amp/src/scss/public.scss",
-		"/C/www/amp/dev/css/store.css",
-		"/C/www/amp/src/js/flow/es6/auto-size-transitions.js",
-		"/C/www/amp/src/js/flow/es6/tablist.js",
-		"/C/www/amp/src/templates/pages/vitrine__home.hbs",
-		"/C/www/amp/src/scss/modules/_burger-btn.scss",
-		"/C/www/DGDeveloppement-EKORS/module-web/src/main/webapp/static-inte/package.json",
-		"/C/www/amp/src/scss/modules/_footer.scss",
-		"/C/www/amp/src/templates/pages/store-creer-mon-compte.hbs",
-		"/C/www/amp/src/templates/partials/menu.hbs",
-		"/C/www/amp/src/templates/pages/liste-pages.hbs",
-		"/C/www/amp/src/templates/pages/liste pages.html",
-		"/C/www/amp/src/templates/pages/store-hp.hbs",
-		"/C/www/amp/src/templates/pages/store-cart-4.hbs",
-		"/C/www/amp/src/templates/pages/store-cart-2.hbs",
-		"/C/www/amp/src/templates/pages/societe__phototheque.hbs",
-		"/C/www/amp/src/templates/pages/societe__home.hbs",
-		"/C/www/amp/src/templates/pages/societe__communiques.hbs",
-		"/C/www/amp/src/templates/pages/pro-hp.hbs",
-		"/C/www/amp/src/templates/pages/pro-doc.hbs",
-		"/C/www/amp/src/templates/pages/login.hbs",
-		"/C/www/amp/src/templates/pages/icons-test.hbs"
+		"/C/www/amp/dev/scss/vendors/_fonticon-icons.scss"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -839,6 +913,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ts",
+			"IRobot[]",
+			"main",
 			":",
 			"__grp",
 			"cart__actions",
@@ -963,15 +1040,12 @@
 			"config",
 			"MutationObserver",
 			"oldie",
-			"console",
-			"image",
-			"'",
-			"{\n"
+			"console"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 			"background-image: $1;",
@@ -1056,35 +1130,274 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/lfalda/.atom/storage/application.json",
+					"file": "src/app/components/app.module.ts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30,
+						"buffer_size": 1257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26,
-								26
+								903,
+								903
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage"
+							"auto_name": "app.module.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/app/components/app.component.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1433,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"auto_name": "app.component.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/app/services/robots.service.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1170,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								519,
+								519
+							]
+						],
+						"settings":
+						{
+							"auto_name": "robots.service.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/app/services/robots-effects.service.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								279
+							]
+						],
+						"settings":
+						{
+							"auto_name": "robots-effects.service.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "server/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
+							]
+						],
+						"settings":
+						{
+							"auto_name": "index.js",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/www/svg-converter/png-fallbacks.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2765,
+								2788
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/app/actions/robots-actions.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 815,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								314
+							]
+						],
+						"settings":
+						{
+							"auto_name": "robots-actions.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/app/model/state-model.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1142,
+								1142
+							]
+						],
+						"settings":
+						{
+							"auto_name": "state-interfaces.ts",
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1121,6 +1434,10 @@
 		]
 	},
 	"menu_visible": false,
+	"output.doc":
+	{
+		"height": 0.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -1678,7 +1995,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":

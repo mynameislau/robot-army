@@ -2,11 +2,22 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../model/state-model';
 import { Actions, Effect } from '@ngrx/effects';
-import { Http } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
-import { INIT, INIT_FAILED } from '../actions/robots-actions';
-import { RobotsDataService } from '../services/robots-data.service';
+import {
+  INIT,
+  CREATE,
+  DELETE,
+  CHANGE_NAME,
+  SET_SELECTED,
+  serverUpdateFailed,
+  serverUpdate,
+
+} from '../actions/robots-actions';
+
+const root:string = 'http://localhost:9999';
+const JSONHeaders = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class RobotsEffects {
@@ -14,13 +25,26 @@ export class RobotsEffects {
   constructor (private store:Store<AppState>, private http:Http, private actions$:Actions) {
   }
 
-  @Effect() login$ = this.actions$
-      // Listen for the 'LOGIN' action
-      .ofType(INIT)
-      .switchMap(() => this.http.get('/')
-        // If successful, dispatch success action with result
-        .map(res => ({ type: 'LOGIN_SUCCESS', payload: res.json() }))
-        // If request fails, dispatch failed action
-        .catch(() => Observable.of({ type: 'LOGIN_FAILED' }));
-      );
+  @Effect() init$ = this.actions$
+    .ofType(INIT)
+    .switchMap(() => this.http.get(`${root}/`)
+    	.map((response:Response) => serverUpdate(response.json()))
+      .catch((reason) => Observable.of(serverUpdateFailed(reason)))
+    );
+
+  @Effect() create$ = this.actions$
+    .ofType(CREATE, DELETE, CHANGE_NAME, SET_SELECTED)
+    .withLatestFrom(
+      this.store.select(state => state.robots.list.toArray()),
+      (action, robots) => {
+        return {
+          action: action,
+          robots: robots
+        };
+      }
+    )
+    .switchMap(data => this.http.post(`${root}/robot-list`, JSON.stringify(data), JSONHeaders)
+      .map((response:Response) => serverUpdate(response.json()))
+      .catch((reason) => Observable.of(serverUpdateFailed(reason)))
+    );
 }

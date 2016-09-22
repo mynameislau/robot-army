@@ -3,7 +3,9 @@ import { List, Record } from 'immutable';
 export const RobotRecord = Record({
   name: null,
   id: null,
-  selected: false
+  selected: false,
+  dirty: false,
+  deleted: false
 });
 
 export const RobotsRecord = Record({
@@ -18,6 +20,9 @@ export class Robot extends RobotRecord {
   name:string;
   id:string;
   selected:Boolean;
+  dirty:Boolean;
+  deleted:Boolean;
+  new:Boolean;
 }
 
 export class Robots extends RobotsRecord {
@@ -27,7 +32,9 @@ export class Robots extends RobotsRecord {
     return this.update('list', list => {
       return list.map((robot:Robot) => {
         if (robot.id === id) {
-          return robot.set('name', name);
+          return robot
+            .set('name', name)
+            .set('dirty', true);
         }
         else {
           return robot;
@@ -39,15 +46,24 @@ export class Robots extends RobotsRecord {
   addRobot (name:string) {
     return this.update('list', list => {
       var highestID = this.list.reduce((prev, robot) => Number(robot.id) > prev ? Number(robot.id) : prev, 0);
-      return list.push(new Robot({ name: name ? name : 'noname', id: String(highestID + 1) }));
+      return list.push(new Robot({
+        name: name ? name : 'noname',
+        id: String(highestID + 1),
+        dirty: true
+      }));
     }) as Robots;
   };
 
   deleteRobot (id:string) {
     return this.update('list', list =>
-      list.filter((robot:Robot) =>
-        robot.id !== id
-      )
+      list.map((robot:Robot) => {
+        if (robot.id === id) {
+          return robot.set('deleted', true);
+        }
+        else {
+          return robot;
+        }
+      })
     ) as Robots;
   }
 
@@ -61,6 +77,18 @@ export class Robots extends RobotsRecord {
         robot.set('selected', id === robot.id)
       )
     ) as Robots;
+  }
+
+  createRobotsList (array:any) {
+    return List(
+      array.map((robot:any) =>
+        new Robot(robot)
+      )
+    );
+  }
+
+  updateRobots (robots:any) {
+    return this.set('list', this.createRobotsList(robots)) as Robots;
   }
 }
 

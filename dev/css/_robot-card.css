@@ -21,3 +21,12 @@
 .robot-card--selected {
   color: red !important;
 }
+
+.robot-card--pending {
+  opacity: 0.4;
+}
+
+.robot-card--deleting {
+  background-color: red;
+  opacity: 0.2;
+}
