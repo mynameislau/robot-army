@@ -37,6 +37,10 @@ export class RobotsService {
     this.store.dispatch(createAction(null));
   }
 
+  getRobot (id:string):Observable<Robot> {
+    return this.store.select(state => state.robots.getRobot(id));
+  }
+
   deleteRobot (event:any) {
     this.store.dispatch(deleteAction(event.id));
   }

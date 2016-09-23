@@ -1,0 +1,31 @@
+.robot-page {
+  text-align: center;
+}
+
+.robot-page figure {
+  background-color: #a9bad0;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.robot-page figure img {
+  display: block;
+}
+
+.robot-page h1 {
+  font-size: 2em;
+  display: block;
+  padding: 1em 0.5em;
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-family: 'Bungee', sans-serif;
+  color: inherit;
+  line-height: inherit;
+}
+
+.robot-page input {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #242e3a;
+}

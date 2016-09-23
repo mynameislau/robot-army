@@ -67,6 +67,10 @@ export class Robots extends RobotsRecord {
     ) as Robots;
   }
 
+  getRobot (id:string):Robot {
+    return this.list.reduce((prev, robot) => robot.id === id ? robot : prev, null);
+  }
+
   getSelectedRobot () {
     return this.list.reduce((prev, robot) => robot.selected ? robot : prev, null);
   }

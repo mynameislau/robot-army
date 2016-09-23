@@ -9,10 +9,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AboutComponent } from './about.component';
+import { DashboardComponent } from './dashboard.component';
 import { RobotCardComponent } from './robot-card.component';
 import { RobotDetailsComponent } from './robot-details.component';
+import { RobotPageComponent } from './robot-page.component';
 import { RobotsService } from '../services/robots.service';
 import { RobotsEffects } from '../services/robots-effects.service';
+
+import { routing } from '../app.routing';
 
 @NgModule({
   imports: [
@@ -27,12 +32,16 @@ import { RobotsEffects } from '../services/robots-effects.service';
         position: 'bottom'
       })
     }),
-    StoreLogMonitorModule
+    StoreLogMonitorModule,
+    routing
   ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     RobotCardComponent,
-    RobotDetailsComponent
+    RobotDetailsComponent,
+    RobotPageComponent,
+    AboutComponent
   ],
   bootstrap: [AppComponent],
   providers: [RobotsService]
