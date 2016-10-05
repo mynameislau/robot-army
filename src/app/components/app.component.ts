@@ -26,6 +26,5 @@ export class AppComponent {
   };
   select (robot:IRobot) {
     this.selectedRobot = robot;
-    console.log('cllick', this.selectedRobot);
   };
 };
