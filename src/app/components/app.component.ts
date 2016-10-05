@@ -8,6 +8,7 @@ import { Robot, Robots, AppState } from '../model/state-model';
 @Component({
   selector: 'my-app',
   template: `
+    <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
     <div class="panels">
       <div class="panels__main">
         <h1>Robot Army Manager 3000</h1>
