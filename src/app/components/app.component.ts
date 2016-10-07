@@ -4,14 +4,16 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
   <article>
-    <h1>{{robotName}}</h1>
+    <h1>{{robot.name}}</h1>
     <figure>
-      <img src="https://robohash.org/{{robotName}}.png">
+      <img src="https://robohash.org/{{robot.name}}.png">
     </figure>
   </article>
-  <input [(ngModel)]="robotName" placeholder="name"/>
+  <input [(ngModel)]="robot.name" placeholder="name"/>
   `
 })
 export class AppComponent {
-  robotName:string = 'Bender';
+  robot:Object = {
+    name: 'Bender'
+  };
 };
