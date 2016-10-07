@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { IRobot } from '../model/IRobot';
 
-const robots:IRobot[] = [
-  { name: 'Bender' },
-  { name: 'Roberto' },
-  { name: 'Hal' }
-];
+import { RobotsService } from '../services/robots.service';
 
 @Component({
   selector: 'my-app',
@@ -26,13 +22,18 @@ const robots:IRobot[] = [
   `
 })
 export class AppComponent {
-  robots:IRobot[] = robots;
+  robots:IRobot[];
   selectedRobot:IRobot;
+
+  constructor (robotsService:RobotsService) {
+    this.robots = robotsService.getRobots();
+  }
+
   isSelected (robot:IRobot) {
     return robot === this.selectedRobot;
   };
+
   select (robot:IRobot) {
     this.selectedRobot = robot;
-    console.log('cllick', this.selectedRobot);
   };
 };
