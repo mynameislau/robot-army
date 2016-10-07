@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRobot } from '../model/IRobot';
+import { IRobot } from '../model/state-interfaces';
 
 @Component({
   selector: 'robot-details',
