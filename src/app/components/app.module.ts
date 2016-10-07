@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { RobotCardComponent } from './robot-card.component';
 import { RobotDetailsComponent } from './robot-details.component';
 
+import { RobotsService } from '../services/robots.service';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { RobotDetailsComponent } from './robot-details.component';
     RobotDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: []
+  providers: [RobotsService]
 })
 
 export class AppModule { }

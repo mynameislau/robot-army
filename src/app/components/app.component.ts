@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IRobot, IRobots, IAppState } from '../model/state-interfaces';
+
+import { RobotsService } from '../services/robots.service';
 
 @Component({
   selector: 'my-app',
@@ -27,8 +28,8 @@ export class AppComponent {
 
   selectedRobot:IRobot;
 
-  constructor (public store:Store<IAppState>) {
-    this.robotsList = store.select(state => state.robots).map(robots => robots.list);
+  constructor (robotsService:RobotsService) {
+    this.robotsList = robotsService.getRobotsList();
   }
 
   isSelected (robot:IRobot) {
