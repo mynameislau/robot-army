@@ -33,6 +33,12 @@ export class Robots extends RobotsRecord {
       });
     }) as Robots;
   }
+
+  getRobot (id:string):Robot {
+    return this.list.reduce((prev, robot) => {
+      return robot.get('id') === id ? robot : prev;
+    }, null);
+  }
 }
 
 export class AppState extends AppStateRecord {

@@ -6,7 +6,7 @@ import { Robot } from '../model/state-model';
   template: `
     <section class="robot-details">
       <div [ngSwitch]="edit">
-        <input #nameInput *ngSwitchCase="true" (keyup)="changeNameHandler(nameInput.value)" type="text" />
+        <input #nameInput *ngSwitchCase="true" [ngModel]="robot.name" (ngModelChange)="changeNameHandler($event)" type="text" />
         <h1 *ngSwitchDefault (click)="setEdit()">{{robot.name}}</h1>
       </div>
       <figure>

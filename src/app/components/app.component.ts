@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { CHANGE_NAME, changeNameAction } from '../actions/robots-actions';
 
-import { Robot, Robots, AppState } from '../model/state-model';
+import { Robot, Robots } from '../model/state-model';
+import { RobotsService } from '../services/robots.service';
 
 @Component({
   selector: 'my-app',
@@ -14,12 +14,12 @@ import { Robot, Robots, AppState } from '../model/state-model';
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
           <li *ngFor="let robot of robotsList|async" class="card-list__entry">
-            <robot-card (click)="select(robot)" [robot]="robot" [selected]="isSelected(robot)"></robot-card>
+            <robot-card (click)="select(robot.id)" [robot]="robot" [selected]="isSelected(robot)|async"></robot-card>
           <li>
         </ul>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot" [robot]="selectedRobot" (changeName)="onChangeName($event)"></robot-details>
+        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="onChangeName($event)"></robot-details>
       </div>
     </div>
   `
@@ -27,24 +27,22 @@ import { Robot, Robots, AppState } from '../model/state-model';
 export class AppComponent {
   robotsList:Observable<Robot[]>;
 
-  selectedRobot:Robot;
+  selectedRobot:Observable<Robot>;
 
-  constructor (public store:Store<AppState>) {
-    this.robotsList = store.select(state => state.robots).map(robots => robots.list.toArray());
-    store.subscribe(state => {
-      console.log(state.robots.list.toArray);
-    })
+  constructor (private service:RobotsService) {
+    this.robotsList = this.service.getRobotsList();
+    this.selectedRobot = this.service.getSelectedRobot();
   }
 
   onChangeName (event:any) {
-    this.store.dispatch(changeNameAction(event.name, event.id))
+    this.service.changeRobotName(event.name, event.id);
   }
 
-  isSelected (robot:Robot) {
-    return robot === this.selectedRobot;
+  isSelected (robot:Robot):Observable<Boolean> {
+    return this.selectedRobot.map(selectedRobot => selectedRobot === robot);
   };
 
-  select (robot:Robot) {
-    this.selectedRobot = robot;
+  select (robotID:string) {
+    this.selectedRobot = this.service.getSelectedRobot(robotID);
   };
 };
