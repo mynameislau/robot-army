@@ -16,7 +16,7 @@ import { RobotsService } from '../services/robots.service';
             <robot-card (click)="service.selectRobot(robot.id)" [robot]="robot"></robot-card>
           <li>
         </ul>
-        <button (click)="createRobot()">Créer un robot</button>
+        <button (click)="service.createRobot()">Créer un robot</button>
       </div>
       <div class="panels__side">
         <robot-details
