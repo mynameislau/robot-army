@@ -14,13 +14,17 @@ import { Robot, Robots, AppState } from '../model/state-model';
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
           <li *ngFor="let robot of robotsList|async" class="card-list__entry">
-            <robot-card (click)="service.select(robot.id)" [robot]="robot"></robot-card>
+            <robot-card (click)="service.selectRobot(robot.id)" [robot]="robot"></robot-card>
           <li>
         </ul>
         <button (click)="service.createRobot()">Créer un robot</button>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="service.onChangeName($event)" (delete)="service.deleteRobot($event)"></robot-details>
+        <robot-details
+        *ngIf="selectedRobot|async"
+        [robot]="selectedRobot|async"
+        (changeName)="service.changeRobotName($event.name, $event.id)"
+        (delete)="service.deleteRobot($event.id)"></robot-details>
       </div>
     </div>
   `
@@ -28,12 +32,10 @@ import { Robot, Robots, AppState } from '../model/state-model';
 export class AppComponent {
   robotsList:Observable<Robot[]>;
   selectedRobot:Observable<Robot>;
-  service:RobotsService;
 
-  constructor (robotsService:RobotsService) {
-    this.service = robotsService;
-    this.robotsList = robotsService.getRobotsList();
-    this.selectedRobot = robotsService.getSelectedRobot();
+  constructor (private service:RobotsService) {
+    this.robotsList = service.getRobotsList();
+    this.selectedRobot = service.getSelectedRobot();
   }
 
   ngOnInit () {
