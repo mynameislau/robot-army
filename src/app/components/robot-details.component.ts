@@ -9,7 +9,7 @@ import { Robot } from '../model/state-model';
         <input
         *ngSwitchCase="true"
         (ngModelChange)="changeNameHandler($event)"
-        [ngModel]="{{robot.name}}"
+        [ngModel]="robot.name"
         type="text"
         />
         <h1 *ngSwitchDefault (click)="setEdit()">{{robot.name}}</h1>
