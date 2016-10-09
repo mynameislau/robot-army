@@ -43,7 +43,11 @@ export class RobotsService {
 
   selectRobot (id:string) {
     this.store.dispatch(setSelectedAction(id));
-  };
+  }
+
+  getRobot (id:string):Observable<Robot> {
+    return this.store.select(state => state.robots.getRobot(id));
+  }
 
   initialize ():void {
     this.store.dispatch(initAction());
