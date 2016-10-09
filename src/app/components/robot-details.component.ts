@@ -7,7 +7,12 @@ import { Router } from '@angular/router';
   template: `
     <section class="robot-details">
       <div [ngSwitch]="edit">
-        <input #nameInput *ngSwitchCase="true" (keyup)="changeNameHandler(nameInput.value)" value="{{robot.name}}" type="text" />
+        <input
+        *ngSwitchCase="true"
+        (ngModelChange)="changeNameHandler($event)"
+        [ngModel]="robot.name"
+        type="text"
+        />
         <h1 *ngSwitchDefault (click)="setEdit()">{{robot.name}}</h1>
       </div>
       <figure>

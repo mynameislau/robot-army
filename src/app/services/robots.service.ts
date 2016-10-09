@@ -29,23 +29,19 @@ export class RobotsService {
     return this.store.select(state => state.robots.getSelectedRobot());
   }
 
-  onChangeName (event:any) {
-    this.store.dispatch(changeNameAction(event.name, event.id));
+  changeRobotName (name:string, id:string) {
+    this.store.dispatch(changeNameAction(name, id));
   }
 
   createRobot () {
     this.store.dispatch(createAction(null));
   }
 
-  getRobot (id:string):Observable<Robot> {
-    return this.store.select(state => state.robots.getRobot(id));
+  deleteRobot (id:string) {
+    this.store.dispatch(deleteAction(id));
   }
 
-  deleteRobot (event:any) {
-    this.store.dispatch(deleteAction(event.id));
-  }
-
-  select (id:string) {
+  selectRobot (id:string) {
     this.store.dispatch(setSelectedAction(id));
   };
 
