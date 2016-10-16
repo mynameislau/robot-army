@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IRobot } from '../model/IRobot';
 
 @Component({
@@ -12,12 +12,20 @@ import { IRobot } from '../model/IRobot';
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
       </figure>
+      <button (click)="saveClick.emit(robot)">Enregistrer</button>
+      <button (click)="deleteClick.emit(robot)">Détruire</button>
     </section>
     `
 })
 export class RobotDetailsComponent {
   @Input()
   robot:IRobot;
+
+  @Output()
+  saveClick = new EventEmitter();
+
+  @Output()
+  deleteClick = new EventEmitter();
 
   edit:Boolean = false;
 
