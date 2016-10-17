@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
@@ -7,7 +7,7 @@ import { IRobot } from '../model/IRobot';
 
 const baseURL:string = 'http://localhost:9999';
 const JSONHeaders:Headers = new Headers({ 'Content-Type': 'application/json' });
-const opts:any = { headers: JSONHeaders };
+const opts:RequestOptionsArgs = { headers: JSONHeaders };
 
 @Injectable()
 export class RobotsService {
