@@ -25,15 +25,18 @@ export class AppComponent {
   robots:IRobot[];
   selectedRobot:IRobot;
 
-  constructor (robotsService:RobotsService) {
-    this.robots = robotsService.getRobots();
+  constructor (private service:RobotsService) {
   }
 
   isSelected (robot:IRobot) {
     return robot === this.selectedRobot;
-  };
+  }
 
   select (robot:IRobot) {
     this.selectedRobot = robot;
-  };
+  }
+
+  ngOnInit () {
+    this.robots = this.service.getRobots();
+  }
 };
