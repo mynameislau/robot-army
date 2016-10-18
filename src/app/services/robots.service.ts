@@ -10,6 +10,6 @@ export class RobotsService {
   constructor (private store:Store<IAppState>) {}
 
   getRobotsList ():Observable<IRobot[]>{
-    return this.store.select(state => state.robots).map(robots => robots.list);
+    return this.store.select(state => state.robots.list);
   }
 }
