@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { robotsReducer } from '../reducers/robots-reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
 import { AppComponent } from './app.component';
 import { RobotCardComponent } from './robot-card.component';
@@ -14,7 +16,14 @@ import { RobotsService } from '../services/robots.service';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.provideStore({ robots: robotsReducer })
+    StoreModule.provideStore({ robots: robotsReducer }),
+    StoreDevtoolsModule.instrumentStore({
+      monitor: useLogMonitor({
+        visible: false,
+        position: 'bottom'
+      })
+    }),
+    StoreLogMonitorModule
   ],
   declarations: [
     AppComponent,

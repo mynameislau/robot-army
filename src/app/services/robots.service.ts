@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { changeNameAction } from '../actions/robot-actions';
 
 import { IRobot, IAppState } from '../model/state-interfaces';
 
@@ -11,5 +12,9 @@ export class RobotsService {
 
   getRobotsList ():Observable<IRobot[]>{
     return this.store.select(state => state.robots.list);
+  }
+
+  changeRobotName (name:string, id:string) {
+    this.store.dispatch(changeNameAction(name, id));
   }
 }
