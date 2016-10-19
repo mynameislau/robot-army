@@ -1,6 +1,6 @@
 import { ActionReducer, Action } from '@ngrx/store';
 import { IRobots, IRobot } from '../model/state-interfaces';
-import { CHANGE_NAME } from '../actions/robot-actions';
+import { CHANGE_NAME } from '../actions/robots-actions';
 
 const defaultRobots:IRobots = {
   list: [
@@ -17,7 +17,7 @@ export const robotsReducer:ActionReducer<IRobots> = (state:IRobots = defaultRobo
       return Object.assign(state, {
         list: state.list.map(robot => {
           if (robot.id === action.payload.id) {
-            return Object.assign(robot, { name: action.payload.name });
+            return Object.assign({}, robot, { name: action.payload.name });
           }
           else {
             return robot;

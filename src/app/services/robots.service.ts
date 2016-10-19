@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { changeNameAction } from '../actions/robot-actions';
+import { changeNameAction } from '../actions/robots-actions';
 
 import { IRobot, IAppState } from '../model/state-interfaces';
 
