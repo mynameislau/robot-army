@@ -38,7 +38,9 @@ export class RobotDetailsComponent {
   constructor (private router:Router) { }
 
   deleteHandler () {
-    this.delete.emit(this.robot.id);
+    this.delete.emit({
+      id: this.robot.id
+    });
   }
 
   navigateTo (id:string) {

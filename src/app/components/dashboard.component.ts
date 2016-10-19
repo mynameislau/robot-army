@@ -23,7 +23,7 @@ import { Robot, Robots, AppState } from '../model/state-model';
         *ngIf="selectedRobot$|async"
         [robot]="selectedRobot$|async"
         (changeName)="service.changeRobotName($event.name, $event.id)"
-        (delete)="service.deleteRobot($event)"></robot-details>
+        (delete)="service.deleteRobot($event.id)"></robot-details>
       </div>
     </div>
   `
