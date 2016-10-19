@@ -28,7 +28,7 @@ export class RobotsService {
   }
 
   createRobot () {
-    this.store.dispatch(createAction(null));
+    this.store.dispatch(createAction());
   }
 
   deleteRobot (id:string) {

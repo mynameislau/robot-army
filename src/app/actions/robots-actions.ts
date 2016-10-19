@@ -27,7 +27,7 @@ export const deleteAction = (id:string) => ({
   }
 });
 
-export const createAction = (id:string) => ({
+export const createAction = () => ({
   type: CREATE,
   payload: {
     name: name
