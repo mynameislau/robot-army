@@ -14,12 +14,12 @@ import { RobotsService } from '../services/robots.service';
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
           <li *ngFor="let robot of robotsList|async" class="card-list__entry">
-            <robot-card (click)="select(robot.id)" [robot]="robot" [selected]="isSelected(robot)|async"></robot-card>
+            <robot-card (click)="select(robot.id)" [robot]="robot" [selected]="isSelected(robot.id)"></robot-card>
           <li>
         </ul>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="onChangeName($event)"></robot-details>
+        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="onChangeName($event.name, $event.id)"></robot-details>
       </div>
     </div>
   `
@@ -27,22 +27,23 @@ import { RobotsService } from '../services/robots.service';
 export class AppComponent {
   robotsList:Observable<Robot[]>;
 
+  selectedRobotID:string;
   selectedRobot:Observable<Robot>;
 
   constructor (private service:RobotsService) {
     this.robotsList = this.service.getRobotsList();
-    this.selectedRobot = this.service.getSelectedRobot();
   }
 
-  onChangeName (event:any) {
-    this.service.changeRobotName(event.name, event.id);
+  onChangeName (name:string, id:string) {
+    this.service.changeRobotName(name, id);
   }
 
-  isSelected (robot:Robot):Observable<Boolean> {
-    return this.selectedRobot.map(selectedRobot => selectedRobot === robot);
+  isSelected (id:string):Boolean {
+    return id === this.selectedRobotID;
   };
 
   select (robotID:string) {
-    this.selectedRobot = this.service.getSelectedRobot(robotID);
+    this.selectedRobotID = robotID;
+    this.selectedRobot = this.service.getRobot(robotID);
   };
 };

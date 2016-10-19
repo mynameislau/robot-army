@@ -21,7 +21,7 @@ export class Robot extends RobotRecord {
 export class Robots extends RobotsRecord {
   list: List<Robot>;
 
-  changeRobotName (name:string, id:string) {
+  changeRobotName (name:string, id:string):Robots {
     return this.update('list', list => {
       return list.map((robot:Robot) => {
         if (robot.id === id) {

@@ -11,14 +11,14 @@ export class RobotsService {
   constructor (private store:Store<AppState>) {}
 
   getRobotsList ():Observable<Robot[]>{
-    return this.store.select(state => state.robots).map(robots => robots.list.toArray());
+    return this.store.select(state => state.robots.list.toArray());
   }
 
   changeRobotName (name:string, id:string) {
     this.store.dispatch(changeNameAction(name, id));
   }
 
-  getSelectedRobot (id:string = null):Observable<Robot> {
+  getRobot (id:string = null):Observable<Robot> {
     return this.store.select(state => state.robots.getRobot(id));
   }
 }
