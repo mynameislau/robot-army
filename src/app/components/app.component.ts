@@ -13,25 +13,24 @@ import { RobotsService } from '../services/robots.service';
       <div class="panels__main">
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
-          <li *ngFor="let robot of robotsList|async" class="card-list__entry">
+          <li *ngFor="let robot of robotsList$|async" class="card-list__entry">
             <robot-card (click)="select(robot.id)" [robot]="robot" [selected]="isSelected(robot.id)"></robot-card>
           <li>
         </ul>
       </div>
       <div class="panels__side">
-        <robot-details *ngIf="selectedRobot|async" [robot]="selectedRobot|async" (changeName)="onChangeName($event.name, $event.id)"></robot-details>
+        <robot-details *ngIf="selectedRobot$|async" [robot]="selectedRobot$|async" (changeName)="onChangeName($event.name, $event.id)"></robot-details>
       </div>
     </div>
   `
 })
 export class AppComponent {
-  robotsList:Observable<Robot[]>;
-
+  robotsList$:Observable<Robot[]>;
   selectedRobotID:string;
-  selectedRobot:Observable<Robot>;
+  selectedRobot$:Observable<Robot>;
 
   constructor (private service:RobotsService) {
-    this.robotsList = this.service.getRobotsList();
+    this.robotsList$ = this.service.getRobotsList();
   }
 
   onChangeName (name:string, id:string) {
@@ -44,6 +43,6 @@ export class AppComponent {
 
   select (robotID:string) {
     this.selectedRobotID = robotID;
-    this.selectedRobot = this.service.getRobot(robotID);
+    this.selectedRobot$ = this.service.getRobot(robotID);
   };
 };
