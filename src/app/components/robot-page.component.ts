@@ -11,9 +11,9 @@ import { Robot } from '../model/state-model';
       <p>
         <button (click)="goBack()">Retour</button>
       </p>
-      <h1>{{(robot|async)?.name}}</h1>
+      <h1>{{(robot$|async)?.name}}</h1>
       <figure>
-        <img src="https://robohash.org/{{(robot|async)?.name}}.png">
+        <img src="https://robohash.org/{{(robot$|async)?.name}}.png">
       </figure>
       <section>
         <h1>Informations</h1>
@@ -25,7 +25,7 @@ import { Robot } from '../model/state-model';
   `
 })
 export class RobotPageComponent {
-  robot:Observable<Robot>
+  robot$:Observable<Robot>
 
   constructor (private robotsService:RobotsService, private route:ActivatedRoute) {}
 
@@ -35,7 +35,7 @@ export class RobotPageComponent {
 
   ngOnInit () {
     this.route.params.forEach((params: Params) => {
-      this.robot = this.robotsService.getRobot(params['id']);
+      this.robot$ = this.robotsService.getRobot(params['id']);
    });
   }
 };

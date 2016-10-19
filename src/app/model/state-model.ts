@@ -57,6 +57,7 @@ export class Robots extends RobotsRecord {
   deleteRobot (id:string) {
     return this.update('list', list =>
       list.map((robot:Robot) => {
+        console.log(robot.id, id, robot.id === id);
         if (robot.id === id) {
           return robot.set('deleted', true);
         }
