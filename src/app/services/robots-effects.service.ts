@@ -43,7 +43,7 @@ export class RobotsEffects {
         };
       }
     )
-    .switchMap(data => this.http.post(`${root}/robot-list`, JSON.stringify(data), JSONHeaders)
+    .switchMap(data => this.http.post(`${root}/`, JSON.stringify(data), JSONHeaders)
       .map((response:Response) => serverUpdate(response.json()))
       .catch((reason) => Observable.of(serverUpdateFailed(reason)))
     );
