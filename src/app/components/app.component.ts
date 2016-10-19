@@ -12,7 +12,7 @@ import { RobotsService } from '../services/robots.service';
       <div class="panels__main">
         <h1>Robot Army Manager 3000</h1>
         <ul class="card-list">
-          <li *ngFor="let robot of robotsList|async" class="card-list__entry">
+          <li *ngFor="let robot of robotsList$|async" class="card-list__entry">
             <robot-card (click)="service.selectRobot(robot.id)" [robot]="robot"></robot-card>
           <li>
         </ul>
@@ -20,8 +20,8 @@ import { RobotsService } from '../services/robots.service';
       </div>
       <div class="panels__side">
         <robot-details
-        *ngIf="selectedRobot|async"
-        [robot]="selectedRobot|async"
+        *ngIf="selectedRobot$|async"
+        [robot]="selectedRobot$|async"
         (changeName)="service.changeRobotName($event.name, $event.id)"
         (delete)="service.deleteRobot($event.id)"></robot-details>
       </div>
@@ -29,11 +29,11 @@ import { RobotsService } from '../services/robots.service';
   `
 })
 export class AppComponent {
-  robotsList:Observable<Robot[]>;
-  selectedRobot:Observable<Robot>;
+  robotsList$:Observable<Robot[]>;
+  selectedRobot$:Observable<Robot>;
 
   constructor (private service:RobotsService) {
-    this.robotsList = service.getRobotsList();
-    this.selectedRobot = service.getSelectedRobot();
+    this.robotsList$ = service.getRobotsList();
+    this.selectedRobot$ = service.getSelectedRobot();
   }
 };
