@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 
 const delay = 1000;
 
-app.post('/robot-list', (req, res) => {
+app.post('/', (req, res) => {
   console.log(req.body.action);
   model = req.body.robots
     .filter(robot =>
