@@ -17,7 +17,7 @@ import { RobotPageComponent } from './robot-page.component';
 import { RobotsService } from '../services/robots.service';
 import { RobotsEffects } from '../services/robots-effects.service';
 
-import { routing } from '../app.routing';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   imports: [
@@ -33,7 +33,7 @@ import { routing } from '../app.routing';
       })
     }),
     StoreLogMonitorModule,
-    routing
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

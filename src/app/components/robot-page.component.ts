@@ -34,7 +34,7 @@ export class RobotPageComponent {
   }
 
   ngOnInit () {
-    this.route.params.forEach((params: Params) => {
+    this.route.params.subscribe((params: Params) => {
       this.robot$ = this.robotsService.getRobot(params['id']);
    });
   }

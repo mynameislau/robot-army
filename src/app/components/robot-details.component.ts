@@ -18,9 +18,13 @@ import { Router } from '@angular/router';
       <figure>
         <img src="https://robohash.org/{{robot.name}}.png">
       </figure>
+      <p>
+        <a [routerLink]="['/robots', robot.id]">Voir plus d'informations</a>
+      </p>
+      <p>
+        <button (click)="deleteHandler()">Détruire</button>
+      </p>
     </section>
-    <button (click)="navigateTo(robot.id)">Voir plus d'informations</button>
-    <button (click)="deleteHandler()">Détruire</button>
     `
 })
 export class RobotDetailsComponent {
@@ -41,10 +45,6 @@ export class RobotDetailsComponent {
     this.delete.emit({
       id: this.robot.id
     });
-  }
-
-  navigateTo (id:string) {
-    this.router.navigate(['/robots', id]);
   }
 
   changeNameHandler (name:string) {
