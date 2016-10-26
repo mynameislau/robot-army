@@ -25,14 +25,16 @@ export class RobotsEffects {
   constructor (private store:Store<AppState>, private http:Http, private actions$:Actions) {
   }
 
-  @Effect() init$ = this.actions$
+  @Effect()
+  init$ = this.actions$
     .ofType(INIT)
     .switchMap(() => this.http.get(`${root}/`)
     	.map((response:Response) => serverUpdate(response.json()))
       .catch((reason) => Observable.of(serverUpdateFailed(reason)))
     );
 
-  @Effect() create$ = this.actions$
+  @Effect()
+  create$ = this.actions$
     .ofType(CREATE, DELETE, CHANGE_NAME, SET_SELECTED)
     .withLatestFrom(
       this.store.select(state => state.robots.list.toArray()),
