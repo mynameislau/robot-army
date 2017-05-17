@@ -30,13 +30,14 @@ export class RobotsService {
     .then(response => response.json());
   }
 
-  updateRobot (id:string, name:string):Promise<IRobot> {
+  updateRobot (id:string, name:string) {
     return this.http.put(`${baseURL}/robot-list/${id}`,
       JSON.stringify({ name: name }),
       opts
     )
     .toPromise()
-    .then(response => response.json());
+    .then(response => console.log(response.json()))
+    .catch(error => console.log(error));
   }
 
   deleteRobot (id:string):Promise<string> {
